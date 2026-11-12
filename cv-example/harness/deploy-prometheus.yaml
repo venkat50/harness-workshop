@@ -1,6 +1,8 @@
 pipeline:
   name: deploy-prometheus
   identifier: deployprometheus
+  projectIdentifier: @MY_HARNESS_PROJECT@
+  orgIdentifier: @MY_HARNESS_ORG@
   tags: {}
   stages:
     - stage:
