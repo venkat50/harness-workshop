@@ -1,0 +1,4 @@
+FOLDER=$1
+sed -i -s "s/@MY_HARNESS_ACCOUNT@/$MY_HARNESS_ACCOUNT//" $FOLDER/*.yaml
+sed -i -s "s/@MY_HARNESS_ORG@/$MY_HARNESS_ORG//" $FOLDER/*.yaml
+sed -i -s "s/@MY_HARNESS_PROJECT@/$MY_HARNESS_PROJECT//" $FOLDER/*.yaml
