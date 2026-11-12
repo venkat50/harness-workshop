@@ -1,9 +1,9 @@
 connector:
   name: prometheus
   identifier: prometheus
-  accountIdentifier: {{ MY_HARNESS_ID }}
-  orgIdentifier: {{ MY_HARNESS_ORG }}
-  projectIdentifier: {{ MY_HARNESS_PROJECT }}
+  accountIdentifier: @MY_HARNESS_ID@
+  orgIdentifier: @MY_HARNESS_ORG@
+  projectIdentifier: @MY_HARNESS_PROJECT@
   type: Prometheus
   spec:
     url: http://10.142.0.24:30090/
