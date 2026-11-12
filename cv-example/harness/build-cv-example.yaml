@@ -1,0 +1,50 @@
+pipeline:
+  name: build-cv-example
+  identifier: buildcvexample
+  projectIdentifier: @MY_HARNESS_PROJECT@
+  orgIdentifier: @MY_HARNESS_ORG@
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        repoName: harness-workshop
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k0s
+              namespace: harness-delegate
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry
+                  identifier: BuildAndPushDockerRegistry
+                  spec:
+                    repo: cv-example
+                    tags:
+                      - 1.0.0
+                    caching: true
+                    dockerfile: cv-example/Dockerfile
+                    context: cv-example
+                    resources:
+                      limits:
+                        memory: 1G
+                        cpu: "1"
+                    registryRef: workshop
