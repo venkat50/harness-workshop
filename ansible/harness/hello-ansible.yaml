@@ -1,0 +1,43 @@
+pipeline:
+  name: hello-ansible
+  identifier: helloansible
+  projectIdentifier: @MY_HARNESS_PROJECT@
+  orgIdentifier: @MY_HARNESS_ORG@
+  tags: {}
+  stages:
+    - stage:
+        name: hello
+        identifier: hello
+        description: ""
+        type: IACM
+        spec:
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k0s
+              namespace: harness-delegate
+              volumes: []
+              annotations: {}
+              labels: {}
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              containerSecurityContext:
+                capabilities:
+                  drop: []
+                  add: []
+              os: Linux
+              hostNames: []
+          playbooks:
+            - helloworld
+          inventories:
+            - test
+          execution:
+            steps:
+              - step:
+                  type: IACMAnsiblePlugin
+                  name: IACMAnsiblePlugin_1
+                  identifier: IACMAnsiblePlugin_1
+                  spec:
+                    command: run
+                  timeout: 10m
+        tags: {}
