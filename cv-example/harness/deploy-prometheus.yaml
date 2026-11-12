@@ -31,9 +31,9 @@ pipeline:
                     ignoreReleaseHistFailStatus: false
                     commandFlags:
                       - commandType: Install
-                        flag: "--set alertmanager.enabled=false --set prometheus-pushgateway.enabled=false --set prometheus-node-exporter.enabled=false"
+                        flag: "--set alertmanager.enabled=false --set prometheus-pushgateway.enabled=false --set prometheus-node-exporter.enabled=false --set server.persistentVolume.enabled=false"
                       - commandType: Upgrade
-                        flag: "--set alertmanager.enabled=false --set prometheus-pushgateway.enabled=false --set prometheus-node-exporter.enabled=false"
+                        flag: "--set alertmanager.enabled=false --set prometheus-pushgateway.enabled=false --set prometheus-node-exporter.enabled=false --set server.persistentVolume.enabled=false"
             rollbackSteps:
               - step:
                   name: Helm Rollback
