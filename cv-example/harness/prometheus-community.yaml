@@ -2,9 +2,9 @@ connector:
   name: prometheus-community
   identifier: prometheuscommunity
   description: ""
-  accountIdentifier: {{ MY_HARNESS_ID }}
-  orgIdentifier: {{ MY_HARNESS_ORG }}
-  projectIdentifier: {{ MY_HARNESS_PROJECT }}
+  accountIdentifier: @MY_HARNESS_ID@
+  orgIdentifier: @MY_HARNESS_ORG@
+  projectIdentifier: @MY_HARNESS_PROJECT@
   type: HttpHelmRepo
   spec:
     helmRepoUrl: https://prometheus-community.github.io/helm-charts
