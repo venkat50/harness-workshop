@@ -2,7 +2,7 @@ connector:
   name: prometheus-community
   identifier: prometheuscommunity
   description: ""
-  accountIdentifier: @MY_HARNESS_ID@
+  accountIdentifier: @MY_HARNESS_ACCOUNT@
   orgIdentifier: @MY_HARNESS_ORG@
   projectIdentifier: @MY_HARNESS_PROJECT@
   type: HttpHelmRepo
